@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+  <loc>http://shop.exfs.ru/</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://shop.exfs.ru/collection?cname=sound_systems</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://shop.exfs.ru/collection?cname=televizory</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://shop.exfs.ru/collection?cname=planshety</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://shop.exfs.ru/collection?cname=noutbuki</loc>
+  <changefreq>always</changefreq>
+</url>
+<url>
+  <loc>http://shop.exfs.ru/nobis.php</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://shop.exfs.ru/solucionis.php</loc>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>http://shop.exfs.ru/delivery.php</loc>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>

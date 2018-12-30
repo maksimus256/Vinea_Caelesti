@@ -1,0 +1,4 @@
+User-agent: *
+Crawl-delay: 20
+Disallow: cartallum.php
+Sitemap: shop.exfs.ru/stiemap.xml

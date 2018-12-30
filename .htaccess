@@ -1,0 +1,45 @@
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{SERVER_NAME}/shop/$1 [R,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+Options All -Indexes
+DirectoryIndex index.php index.html index.htm
+
+#—жимаем элементы с помощью mod_deflate
+<ifModule mod_deflate.c>
+  <IfModule mod_filter.c>
+      AddOutputFilterByType DEFLATE text/plain text/html
+      AddOutputFilterByType DEFLATE text/css
+      AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+      AddOutputFilterByType DEFLATE text/xml application/xml application/xhtml+xml application/rss+xml
+      AddOutputFilterByType DEFLATE application/json
+      AddOutputFilterByType DEFLATE application/vnd.ms-fontobject application/x-font-ttf font/opentype image/svg+xml image/x-icon
+  </ifModule>
+</ifModule>
+
+<ifModule mod_headers.c>
+    # 43200 - день, 604800 - недел€, 2592000 - мес€ц
+    <FilesMatch "\.(html|js|css)$">
+	Header set Cache-Control "max-age=43200"
+        #Header unset Last-Modified
+    </FilesMatch>
+    <Files *.txt>
+	Header add Cache-Control "max-age=43200"
+    </Files>
+    <FilesMatch "\.(flv|swf|ico|gif|jpg|jpeg|png)$">
+	Header set Cache-Control "max-age=2592000"
+    </FilesMatch>
+    <FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+	# отключить кэширование
+	Header unset Cache-Control
+    </FilesMatch>
+</IfModule>
+
+### ”далить заголовок ETag (иначе есть проблемы с кешированием при включенном сжатии)
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
